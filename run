@@ -1,0 +1,21 @@
+#!/bin/bash
+# 一条命令：编译 → 安装到 ~/Applications → 启动（正在运行则自动重启）
+# 用法：./run
+set -euo pipefail
+cd "$(dirname "$0")"
+
+APP_NAME="MenuBarAlert"
+DEST="$HOME/Applications/$APP_NAME.app"
+
+./install.sh
+
+if pgrep -x "$APP_NAME" >/dev/null; then
+    echo "==> 重启 $APP_NAME"
+    pkill -x "$APP_NAME" || true
+    sleep 1
+fi
+
+open "$DEST"
+
+echo "==> 已启动：$DEST"
+echo "    菜单栏右上角应显示警示语；日志：tail -n 20 ~/Library/Logs/$APP_NAME.log"
