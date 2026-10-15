@@ -2,7 +2,7 @@
 
 在 macOS 菜单栏（屏幕右上角状态栏）常驻显示你自己配置的警示语。纯系统自带 Swift 编译，**不依赖任何第三方工具**（不需要 Homebrew、不需要完整 Xcode、不需要开发者账号）。
 
-源码目录：`/Users/xiong/Documents/GitHub/menubar-alert`（本目录）
+仓库：<https://github.com/leonezhu/mac-menubar-alert>
 
 运行后各文件位置：
 
@@ -26,10 +26,18 @@ xcode-select --install
 
 ## 安装与启动
 
+### 获取代码
+
+```bash
+git clone git@github.com:leonezhu/mac-menubar-alert.git
+# 没有配置 SSH 密钥就用 HTTPS：
+# git clone https://github.com/leonezhu/mac-menubar-alert.git
+cd mac-menubar-alert
+```
+
 ### 一条命令（推荐）
 
 ```bash
-cd /Users/xiong/Documents/GitHub/menubar-alert
 ./run
 ```
 
@@ -157,7 +165,7 @@ rm -f ~/.menubar-alert.json ~/Library/LaunchAgents/local.menubar-alert.plist
 ## 文件结构
 
 ```
-menubar-alert/
+mac-menubar-alert/
 ├── run                  一条命令：编译 + 安装 + 启动（入口）
 ├── src/main.swift       程序源码（单文件）
 ├── resources/Info.plist app 元信息（LSUIElement = 无 Dock 图标）
